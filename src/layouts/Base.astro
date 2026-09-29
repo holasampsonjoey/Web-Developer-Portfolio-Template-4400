@@ -2,6 +2,8 @@
 // App.css is imported before index.css to keep the same cascade order as the Vite build
 import '../App.css';
 import '../index.css';
+
+const { title = 'Sampson Joey - Web Developer' } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -9,7 +11,7 @@ import '../index.css';
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sampson Joey - Web Developer</title>
+    <title>{title}</title>
     <meta name="description" content="Web developer specializing in modern, high-performance websites and applications. Available for freelance projects." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
