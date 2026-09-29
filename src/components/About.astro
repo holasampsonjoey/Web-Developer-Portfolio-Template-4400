@@ -1,0 +1,161 @@
+---
+import { FiDownload } from 'react-icons/fi';
+import Reveal from './islands/Reveal.jsx';
+import Motion from './islands/Motion.jsx';
+
+const skills = [
+  "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Node.js",
+  "HTML5", "CSS3", "Tailwind CSS", "MongoDB", "PostgreSQL", "Git",
+  "Docker", "AWS", "Figma", "Webflow", "Shopify", "WordPress"
+];
+
+const experience = [
+  {
+    year: "2024",
+    role: "Senior Web Developer",
+    company: "Freelance",
+    description: "Leading web development projects for various clients, specializing in modern JavaScript frameworks and e-commerce solutions."
+  },
+  {
+    year: "2022-2024",
+    role: "Full Stack Developer",
+    company: "Tech Startup",
+    description: "Built and maintained web applications serving thousands of users, focusing on performance optimization and user experience."
+  },
+  {
+    year: "2020-2022",
+    role: "Frontend Developer",
+    company: "Digital Agency",
+    description: "Developed responsive websites and web applications for clients across various industries, from startups to enterprise."
+  }
+];
+
+const education = [
+  {
+    year: "2018-2020",
+    degree: "Master of Computer Science",
+    institution: "University of Texas at Austin",
+    description: "Focused on web technologies, human-computer interaction, and UI/UX design principles."
+  },
+  {
+    year: "2014-2018",
+    degree: "Bachelor of Science in Information Technology",
+    institution: "Texas State University",
+    description: "Graduated with honors. Coursework included web development, database management, and software engineering."
+  }
+];
+---
+<section class="py-32 bg-white" id="about">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <Reveal
+      client:load
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="mb-24"
+    >
+      <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-8 tracking-tight">
+        About Me
+      </h2>
+    </Reveal>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+      <Reveal
+        client:load
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div class="space-y-6 text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p>
+            I'm a web developer based in Austin, Texas, passionate about creating digital experiences that make a difference. 
+            With over 5 years of experience, I've worked with startups, agencies, and established companies 
+            to build websites and applications that perform.
+          </p>
+          <p>
+            My approach combines technical expertise with creative problem-solving. I believe great websites 
+            should be fast, accessible, and beautiful. Every project is an opportunity to push boundaries 
+            and create something meaningful.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
+            or sharing knowledge with the developer community. I also enjoy hiking, photography, and exploring the local food scene.
+          </p>
+          
+          <Motion
+            client:load
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block mt-6"
+          >
+            <a 
+              href="#" 
+              class="flex items-center gap-2 bg-gray-100 text-black px-8 py-3 text-lg font-medium hover:bg-gray-200 transition-colors"
+            >
+              <FiDownload className="w-5 h-5" />
+              Download Resume
+            </a>
+          </Motion>
+        </div>
+      </Reveal>
+
+      <Reveal
+        client:load
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* space-y-12 moved inside: Astro's display:contents slot wrapper would block the child selector */}
+        <div class="space-y-12">
+          <div>
+            <h3 class="text-2xl font-bold text-black mb-6">Professional Experience</h3>
+            <div class="space-y-8">
+              {experience.map((exp) => (
+                <div class="border-l-2 border-gray-200 pl-6">
+                  <div class="text-sm text-gray-500 font-medium mb-1">{exp.year}</div>
+                  <div class="text-lg font-bold text-black mb-1">{exp.role}</div>
+                  <div class="text-gray-600 mb-2">{exp.company}</div>
+                  <div class="text-gray-600 text-sm leading-relaxed">{exp.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-black mb-6">Education</h3>
+            <div class="space-y-8">
+              {education.map((edu) => (
+                <div class="border-l-2 border-gray-200 pl-6">
+                  <div class="text-sm text-gray-500 font-medium mb-1">{edu.year}</div>
+                  <div class="text-lg font-bold text-black mb-1">{edu.degree}</div>
+                  <div class="text-gray-600 mb-2">{edu.institution}</div>
+                  <div class="text-gray-600 text-sm leading-relaxed">{edu.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+
+    <Reveal
+      client:load
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h3 class="text-2xl font-bold text-black mb-8">Skills & Technologies</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {skills.map((skill) => (
+          <Motion
+            client:load
+            whileHover={{ scale: 1.05 }}
+            className="p-4 bg-gray-50 text-center hover:bg-gray-100 transition-colors"
+          >
+            <span class="text-gray-800 font-medium">{skill}</span>
+          </Motion>
+        ))}
+      </div>
+    </Reveal>
+  </div>
+</section>

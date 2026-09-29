@@ -1,7 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
-import App from '../App.jsx';
+import Navigation from '../components/Navigation.jsx';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Portfolio from '../components/Portfolio.jsx';
+import Stats from '../components/Stats.astro';
+import Testimonials from '../components/Testimonials.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.jsx';
+import Footer from '../components/Footer.jsx';
 ---
 <Base>
-  <App client:only="react" />
+  <div class="min-h-screen bg-white">
+    <Navigation client:load />
+    <Hero />
+    <Services />
+    <Portfolio client:load />
+    <Stats />
+    <Testimonials />
+    <About />
+    <Contact client:load />
+    <Footer client:load />
+  </div>
 </Base>

@@ -1,0 +1,28 @@
+---
+import Reveal from './islands/Reveal.jsx';
+
+const stats = [
+  { number: "5+", label: "Years Experience" },
+  { number: "50+", label: "Projects Completed" },
+  { number: "30+", label: "Happy Clients" },
+  { number: "15+", label: "Awards Won" }
+];
+---
+<section class="py-24 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {stats.map((stat, index) => (
+        <Reveal
+          client:load
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          className="text-center"
+        >
+          <div class="text-5xl md:text-6xl font-bold mb-2">{stat.number}</div>
+          <div class="text-lg text-gray-400 uppercase tracking-wide">{stat.label}</div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
