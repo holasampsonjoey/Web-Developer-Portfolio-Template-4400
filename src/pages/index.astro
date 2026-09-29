@@ -8,7 +8,7 @@ import Stats from '../components/Stats.astro';
 import Testimonials from '../components/Testimonials.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.jsx';
+import Footer from '../components/Footer.astro';
 ---
 <Base>
   <div class="min-h-screen bg-white">
@@ -20,6 +20,6 @@ import Footer from '../components/Footer.jsx';
     <Testimonials />
     <About />
     <Contact />
-    <Footer client:load />
+    <Footer />
   </div>
 </Base>

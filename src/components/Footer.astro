@@ -1,0 +1,87 @@
+---
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiInstagram, FiArrowUp } from 'react-icons/fi';
+---
+<footer class="bg-white py-16 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold text-black mb-6">
+          Sampson Joey
+        </h3>
+        <p class="text-gray-600 mb-8 max-w-md leading-relaxed">
+          Full Stack Developer & UI/UX Designer focused on creating exceptional digital experiences. 
+          Based in Austin, TX and available for freelance projects and collaborations.
+        </p>
+        <div class="flex space-x-6">
+          <a href="https://github.com/sampsonjoey" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-black transition-colors">
+            <FiGithub className="h-6 w-6" />
+          </a>
+          <a href="https://linkedin.com/in/sampsonjoey" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-black transition-colors">
+            <FiLinkedin className="h-6 w-6" />
+          </a>
+          <a href="https://twitter.com/sampsonjoey" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-black transition-colors">
+            <FiTwitter className="h-6 w-6" />
+          </a>
+          <a href="https://instagram.com/sampsonjoey.dev" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-black transition-colors">
+            <FiInstagram className="h-6 w-6" />
+          </a>
+          <a href="mailto:hola@sampsonjoey.com" class="text-gray-600 hover:text-black transition-colors">
+            <FiMail className="h-6 w-6" />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-bold text-black mb-6">Services</h4>
+        <ul class="space-y-3 text-gray-600">
+          <li><a href="#services" class="hover:text-black transition-colors">Web Development</a></li>
+          <li><a href="#services" class="hover:text-black transition-colors">E-commerce</a></li>
+          <li><a href="#services" class="hover:text-black transition-colors">UI/UX Design</a></li>
+          <li><a href="#services" class="hover:text-black transition-colors">Performance</a></li>
+          <li><a href="#services" class="hover:text-black transition-colors">Maintenance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-bold text-black mb-6">Links</h4>
+        <ul class="space-y-3 text-gray-600">
+          <li><a href="#portfolio" class="hover:text-black transition-colors">Work</a></li>
+          <li><a href="#about" class="hover:text-black transition-colors">About</a></li>
+          <li><a href="#contact" class="hover:text-black transition-colors">Contact</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Blog</a></li>
+          <li><a href="#" class="hover:text-black transition-colors">Resources</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-600 text-sm">
+        &copy; <span data-current-year>{new Date().getFullYear()}</span> Sampson Joey. All rights reserved.
+      </p>
+      <div class="flex items-center space-x-8 mt-4 md:mt-0">
+        <button 
+          type="button"
+          data-scroll-top
+          class="flex items-center text-gray-600 hover:text-black transition-colors"
+        >
+          <span class="mr-2">Back to Top</span>
+          <FiArrowUp className="h-4 w-4" />
+        </button>
+        <p class="text-gray-600 text-sm">
+          Built with React & Tailwind CSS
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Keep the copyright year current between builds, as the React version did at runtime
+  document.querySelectorAll('[data-current-year]').forEach((el) => {
+    el.textContent = String(new Date().getFullYear());
+  });
+
+  document.querySelector('[data-scroll-top]')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
