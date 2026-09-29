@@ -1,0 +1,23 @@
+---
+// App.css is imported before index.css to keep the same cascade order as the Vite build
+import '../App.css';
+import '../index.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sampson Joey - Web Developer</title>
+    <meta name="description" content="Web developer specializing in modern, high-performance websites and applications. Available for freelance projects." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root">
+      <slot />
+    </div>
+  </body>
+</html>
