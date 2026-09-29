@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SafeIcon from '../common/SafeIcon';
+import * as FiIcons from 'react-icons/fi';
+
+const { FiMail, FiPhone, FiMapPin, FiClock } = FiIcons;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,12 +13,32 @@ const Contact = () => {
     message: ""
   });
 
+  const [formStatus, setFormStatus] = useState({
+    submitted: false,
+    error: false,
+    message: ""
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", project: "", message: "" });
+    // Simulate form submission
+    setFormStatus({
+      submitted: true,
+      error: false,
+      message: "Thank you for your message! I'll get back to you soon."
+    });
+    
+    // Reset form after successful submission
+    setTimeout(() => {
+      setFormData({ name: "", email: "", project: "", message: "" });
+      setFormStatus({
+        submitted: false,
+        error: false,
+        message: ""
+      });
+    }, 5000);
   };
 
   const handleChange = (e) => {
@@ -48,6 +72,12 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
           >
             <form onSubmit={handleSubmit} className="space-y-8">
+              {formStatus.submitted && (
+                <div className={`p-4 ${formStatus.error ? 'bg-red-900/20' : 'bg-green-900/20'} mb-6`}>
+                  {formStatus.message}
+                </div>
+              )}
+              
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-3">Name</label>
                 <input
@@ -87,6 +117,7 @@ const Contact = () => {
                   <option value="website" className="bg-black">Website Development</option>
                   <option value="webapp" className="bg-black">Web Application</option>
                   <option value="ecommerce" className="bg-black">E-commerce</option>
+                  <option value="design" className="bg-black">UI/UX Design</option>
                   <option value="other" className="bg-black">Other</option>
                 </select>
               </div>
@@ -124,21 +155,40 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <div className="space-y-6">
-                <div>
-                  <div className="text-sm text-gray-400 mb-1">Email</div>
-                  <a href="mailto:hola@sampsonjoey.com" className="text-lg text-white hover:text-gray-300 transition-colors">
-                    hola@sampsonjoey.com
-                  </a>
+                <div className="flex items-start space-x-4">
+                  <SafeIcon icon={FiMail} className="h-6 w-6 text-gray-400 mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Email</div>
+                    <a href="mailto:hola@sampsonjoey.com" className="text-lg text-white hover:text-gray-300 transition-colors">
+                      hola@sampsonjoey.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm text-gray-400 mb-1">Phone</div>
-                  <a href="tel:+15551234567" className="text-lg text-white hover:text-gray-300 transition-colors">
-                    +1 (555) 123-4567
-                  </a>
+                
+                <div className="flex items-start space-x-4">
+                  <SafeIcon icon={FiPhone} className="h-6 w-6 text-gray-400 mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Phone</div>
+                    <a href="tel:+15551234567" className="text-lg text-white hover:text-gray-300 transition-colors">
+                      +1 (555) 123-4567
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm text-gray-400 mb-1">Location</div>
-                  <div className="text-lg text-white">Available Worldwide</div>
+                
+                <div className="flex items-start space-x-4">
+                  <SafeIcon icon={FiMapPin} className="h-6 w-6 text-gray-400 mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Location</div>
+                    <div className="text-lg text-white">Austin, TX</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <SafeIcon icon={FiClock} className="h-6 w-6 text-gray-400 mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-1">Availability</div>
+                    <div className="text-lg text-white">Monday - Friday, 9am - 6pm CST</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,6 +215,10 @@ const Contact = () => {
                 <div className="flex items-start space-x-3">
                   <span className="text-white font-bold">03</span>
                   <span>I'll provide a detailed proposal and timeline</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-white font-bold">04</span>
+                  <span>Upon approval, we'll begin the development process</span>
                 </div>
               </div>
             </div>

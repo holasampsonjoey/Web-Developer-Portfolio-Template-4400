@@ -1,5 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SafeIcon from '../common/SafeIcon';
+import * as FiIcons from 'react-icons/fi';
+
+const { FiDownload } = FiIcons;
 
 const About = () => {
   const skills = [
@@ -29,6 +33,21 @@ const About = () => {
     }
   ];
 
+  const education = [
+    {
+      year: "2018-2020",
+      degree: "Master of Computer Science",
+      institution: "University of Texas at Austin",
+      description: "Focused on web technologies, human-computer interaction, and UI/UX design principles."
+    },
+    {
+      year: "2014-2018",
+      degree: "Bachelor of Science in Information Technology",
+      institution: "Texas State University",
+      description: "Graduated with honors. Coursework included web development, database management, and software engineering."
+    }
+  ];
+
   return (
     <section className="py-32 bg-white" id="about">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -39,11 +58,11 @@ const About = () => {
           className="mb-24"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-8 tracking-tight">
-            About
+            About Me
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,7 +70,7 @@ const About = () => {
           >
             <div className="space-y-6 text-lg md:text-xl text-gray-600 leading-relaxed">
               <p>
-                I'm a web developer passionate about creating digital experiences that make a difference. 
+                I'm a web developer based in Austin, Texas, passionate about creating digital experiences that make a difference. 
                 With over 5 years of experience, I've worked with startups, agencies, and established companies 
                 to build websites and applications that perform.
               </p>
@@ -62,8 +81,22 @@ const About = () => {
               </p>
               <p>
                 When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-                or sharing knowledge with the developer community.
+                or sharing knowledge with the developer community. I also enjoy hiking, photography, and exploring the local food scene.
               </p>
+              
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block mt-6"
+              >
+                <a 
+                  href="#" 
+                  className="flex items-center gap-2 bg-gray-100 text-black px-8 py-3 text-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  <SafeIcon icon={FiDownload} className="w-5 h-5" />
+                  Download Resume
+                </a>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -71,10 +104,10 @@ const About = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-12"
           >
             <div>
-              <h3 className="text-2xl font-bold text-black mb-6">Experience</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Professional Experience</h3>
               <div className="space-y-8">
                 {experience.map((exp, index) => (
                   <div key={index} className="border-l-2 border-gray-200 pl-6">
@@ -82,6 +115,20 @@ const About = () => {
                     <div className="text-lg font-bold text-black mb-1">{exp.role}</div>
                     <div className="text-gray-600 mb-2">{exp.company}</div>
                     <div className="text-gray-600 text-sm leading-relaxed">{exp.description}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-6">Education</h3>
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <div key={index} className="border-l-2 border-gray-200 pl-6">
+                    <div className="text-sm text-gray-500 font-medium mb-1">{edu.year}</div>
+                    <div className="text-lg font-bold text-black mb-1">{edu.degree}</div>
+                    <div className="text-gray-600 mb-2">{edu.institution}</div>
+                    <div className="text-gray-600 text-sm leading-relaxed">{edu.description}</div>
                   </div>
                 ))}
               </div>

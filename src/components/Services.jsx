@@ -1,5 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SafeIcon from '../common/SafeIcon';
+import * as FiIcons from 'react-icons/fi';
+
+const { FiCode, FiShoppingBag, FiZap, FiTool } = FiIcons;
 
 const Services = () => {
   const services = [
@@ -7,25 +11,29 @@ const Services = () => {
       number: "01",
       title: "Web Development",
       description: "Custom websites built with modern technologies. From landing pages to complex web applications, I create solutions that perform.",
-      technologies: ["React", "Next.js", "TypeScript", "Node.js"]
+      technologies: ["React", "Next.js", "TypeScript", "Node.js"],
+      icon: FiCode
     },
     {
       number: "02", 
       title: "E-commerce",
       description: "Full-featured online stores with seamless payment integration. Built for conversion and optimized for performance.",
-      technologies: ["Shopify", "WooCommerce", "Stripe", "PayPal"]
+      technologies: ["Shopify", "WooCommerce", "Stripe", "PayPal"],
+      icon: FiShoppingBag
     },
     {
       number: "03",
       title: "Performance",
       description: "Speed optimization and SEO that gets results. Your website will load fast and rank high in search results.",
-      technologies: ["Core Web Vitals", "SEO", "Analytics", "Optimization"]
+      technologies: ["Core Web Vitals", "SEO", "Analytics", "Optimization"],
+      icon: FiZap
     },
     {
       number: "04",
       title: "Maintenance",
       description: "Ongoing support and updates to keep your website secure and running smoothly. Peace of mind included.",
-      technologies: ["Updates", "Security", "Backups", "Monitoring"]
+      technologies: ["Updates", "Security", "Backups", "Monitoring"],
+      icon: FiTool
     }
   ];
 
@@ -56,9 +64,14 @@ const Services = () => {
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
             >
               <div className="lg:col-span-2">
-                <span className="text-6xl md:text-7xl font-bold text-gray-200">
-                  {service.number}
-                </span>
+                <div className="flex items-center">
+                  <span className="text-6xl md:text-7xl font-bold text-gray-200">
+                    {service.number}
+                  </span>
+                  <div className="ml-4 p-3 bg-gray-100 rounded-lg">
+                    <SafeIcon icon={service.icon} className="w-6 h-6 text-black" />
+                  </div>
+                </div>
               </div>
               <div className="lg:col-span-4">
                 <h3 className="text-3xl md:text-4xl font-bold text-black mb-6">
