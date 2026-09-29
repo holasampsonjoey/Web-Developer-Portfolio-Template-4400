@@ -1,0 +1,11 @@
+---
+import NavigationMenu from './islands/NavigationMenu.jsx';
+
+const menuItems = [
+  { label: "Work", href: "#portfolio" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Contact", href: "#contact" },
+];
+---
+<NavigationMenu client:load menuItems={menuItems} />

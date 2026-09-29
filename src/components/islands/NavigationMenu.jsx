@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import SafeIcon from '../common/SafeIcon';
-import * as FiIcons from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
-const { FiMenu, FiX } = FiIcons;
-
-const Navigation = () => {
+const NavigationMenu = ({ menuItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const menuItems = [
-    { label: "Work", href: "#portfolio" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const MenuIcon = isMenuOpen ? FiX : FiMenu;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
@@ -47,7 +38,7 @@ const Navigation = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-black hover:text-gray-600"
             >
-              <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="h-6 w-6" />
+              <MenuIcon className="h-6 w-6" />
             </button>
           </div>
         </div>
@@ -76,4 +67,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default NavigationMenu;

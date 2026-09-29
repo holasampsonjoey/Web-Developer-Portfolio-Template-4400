@@ -1,0 +1,77 @@
+---
+import PortfolioGallery from './islands/PortfolioGallery.jsx';
+
+const projects = [
+  {
+    title: "Nomad Traveler",
+    category: "Web Development",
+    description: "Travel blog platform with interactive maps, itinerary planning, and photo galleries. Features user accounts and social sharing.",
+    image: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&h=600&fit=crop",
+    technologies: ["Next.js", "MongoDB", "Mapbox", "Cloudinary"],
+    year: "2024",
+    liveLink: "https://example.com/nomad",
+    githubLink: "https://github.com/sampsonjoey/nomad",
+    type: "featured"
+  },
+  {
+    title: "E-commerce Platform",
+    category: "Web Development",
+    description: "A modern e-commerce solution with advanced filtering, wishlist functionality, and seamless checkout experience.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    year: "2024",
+    liveLink: "https://example.com/ecommerce",
+    githubLink: "https://github.com/sampsonjoey/ecommerce",
+    type: "web"
+  },
+  {
+    title: "SaaS Dashboard",
+    category: "Web Application",
+    description: "Analytics dashboard with real-time data visualization and comprehensive reporting features.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    technologies: ["Vue.js", "Chart.js", "Express", "PostgreSQL"],
+    year: "2024",
+    liveLink: "https://example.com/dashboard",
+    githubLink: "https://github.com/sampsonjoey/dashboard",
+    type: "web"
+  },
+  {
+    title: "Restaurant Chain",
+    category: "Web Development",
+    description: "Multi-location restaurant website with online ordering, table reservations, and loyalty program.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+    technologies: ["Next.js", "Tailwind", "Prisma", "Stripe"],
+    year: "2023",
+    liveLink: "https://example.com/restaurant",
+    githubLink: "https://github.com/sampsonjoey/restaurant",
+    type: "featured"
+  },
+  {
+    title: "Creative Portfolio",
+    category: "Web Design",
+    description: "Minimalist portfolio website for a creative professional with smooth animations and gallery features.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+    technologies: ["React", "Framer Motion", "Sanity", "Vercel"],
+    year: "2023",
+    liveLink: "https://example.com/portfolio",
+    githubLink: "https://github.com/sampsonjoey/portfolio",
+    type: "design"
+  },
+  {
+    title: "Photography Showcase",
+    category: "Web Design",
+    description: "Interactive photography portfolio with masonry grid layout, lightbox viewer, and custom filtering.",
+    image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&h=600&fit=crop",
+    technologies: ["React", "CSS Grid", "Lightbox", "Netlify"],
+    year: "2023",
+    liveLink: "https://example.com/photography",
+    githubLink: "https://github.com/sampsonjoey/photography",
+    type: "design"
+  }
+];
+---
+<section class="py-32 bg-gray-50" id="portfolio">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <PortfolioGallery client:load projects={projects} />
+  </div>
+</section>
