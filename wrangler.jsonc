@@ -1,0 +1,8 @@
+{
+  "name": "web-developer-portfolio-template-4400",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
